@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Newspaper.css';
+import './Dashboard.css';
 
 const ListSection = ({ title, items, onAdd, onToggle, onUpdate, type }) => (
   <section className="log-section mb-10">

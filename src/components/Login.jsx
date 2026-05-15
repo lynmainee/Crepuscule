@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Newspaper.css';
+import './Dashboard.css';
 
 const Login = ({ onLogin }) => {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
