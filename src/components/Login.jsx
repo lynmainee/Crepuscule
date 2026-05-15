@@ -40,7 +40,7 @@ const Login = ({ onLogin }) => {
           <span>EST. 2026</span>
         </div>
         <h1 className="headline-main">
-          {isRegistering ? "Join the Circle" : "Align with the Tide"}
+          {isRegistering ? "Join the Circle" : "The Soltice Matins"}
         </h1>
         <div className="nav-bar" style={{ justifyContent: 'center' }}>
           <span className="italic">
