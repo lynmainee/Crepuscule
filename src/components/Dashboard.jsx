@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Newspaper.css';
 
-// --- SUB-COMPONENTS ---
 const ListSection = ({ title, items, onAdd, onToggle, onUpdate, type }) => (
   <section className="log-section mb-10">
     <h3 className="section-title">{title}</h3>
@@ -37,7 +36,7 @@ const ListSection = ({ title, items, onAdd, onToggle, onUpdate, type }) => (
 );
 
 const Dashboard = ({ user, onLogout }) => {
-  // --- STATE MANAGEMENT ---
+
   const [currentDate, setCurrentDate] = useState(new Date());
   const [entryText, setEntryText] = useState("");
   const [events, setEvents] = useState([]);
@@ -45,7 +44,6 @@ const Dashboard = ({ user, onLogout }) => {
   const [mood, setMood] = useState(null);
   const [image, setImage] = useState(null);
   
-  // Profile state (usually stays the same across days)
   const [profileImage, setProfileImage] = useState(user?.profile?.image || null);
   const [profileName, setProfileName] = useState(user?.profile?.name || "");
   const [profileBio, setProfileBio] = useState(user?.profile?.bio || "");
@@ -53,14 +51,11 @@ const Dashboard = ({ user, onLogout }) => {
   const fileInputRef = useRef(null);
   const profileInputRef = useRef(null);
 
-  // Formatting date for Display and DB key
   const dateKey = currentDate.toLocaleDateString('en-US', { 
     weekday: 'long', month: 'long', day: 'numeric' 
   });
 
-  // --- DATABASE HANDLERS ---
 
-  // Load entry whenever the date changes
   useEffect(() => {
     const fetchEntry = async () => {
       try {
@@ -74,7 +69,6 @@ const Dashboard = ({ user, onLogout }) => {
           setMood(data.mood || "");
           setImage(data.image || null);
         } else {
-          // Clear fields for a new day
           setEntryText("");
           setEvents([]);
           setTasks([]);
@@ -112,7 +106,6 @@ const Dashboard = ({ user, onLogout }) => {
     }
   };
 
-  // --- UI HANDLERS ---
   const handleFileChange = (e, setter) => {
     const file = e.target.files[0];
     if (file) {
@@ -221,7 +214,7 @@ const Dashboard = ({ user, onLogout }) => {
             <textarea className="profile-bio-input" value={profileBio} onChange={(e) => setProfileBio(e.target.value)} placeholder="Short description..." />
           </section>
 
-          {/* This acts as your Archive Navigator now as requested */}
+          {/*Archive Navigator*/}
           <section className="navigation-controls p-4 border border-black bg-white/50">
             <h3 className="section-title text-center mb-4">Archive Navigator</h3>
             <div className="flex flex-col gap-2">
