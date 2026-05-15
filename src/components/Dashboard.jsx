@@ -59,7 +59,7 @@ const Dashboard = ({ user, onLogout }) => {
   useEffect(() => {
     const fetchEntry = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/entry/${user.userId}/${dateKey}`);
+        const response = await fetch(`https://expressnodeapp-obar.onrender.com/api/entry/${user.userId}/${dateKey}`);
         const data = await response.json();
 
         if (data && data._id) {
@@ -95,7 +95,7 @@ const Dashboard = ({ user, onLogout }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/entry', {
+      const response = await fetch('https://expressnodeapp-obar.onrender.com/api/entry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
