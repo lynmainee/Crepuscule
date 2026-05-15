@@ -8,9 +8,8 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage(""); // Reset status message
+    setMessage("");
     
-    // Switch endpoint based on current mode
     const endpoint = isRegistering ? '/api/register' : '/api/login';
     
     try {
@@ -23,7 +22,6 @@ const Login = ({ onLogin }) => {
       const data = await response.json();
       
       if (response.ok && data.success) {
-        // Pass userId and profile back to App.js
         onLogin(data.userId, data.profile); 
       } else {
         setMessage(data.message || "An error occurred during authentication.");
